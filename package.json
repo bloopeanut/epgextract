@@ -2,7 +2,7 @@
   "name": "epg",
   "scripts": {
   "start": "cross-env NODE_OPTIONS=\"--max-old-space-size=4096\" node server.js",
-  "build": "cross-env NODE_OPTIONS=\"--max-old-space-size=4096\" npm run build-only"
+  "build": "cross-env NODE_OPTIONS=\"--max-old-space-size=4096\" npm run build-only",
    "act:check": "act pull_request -W .github/workflows/check.yml",
     "act:format": "act workflow_dispatch -W .github/workflows/format.yml",
     "act:update": "act workflow_dispatch -W .github/workflows/update.yml",
