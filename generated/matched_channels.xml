@@ -1203,7 +1203,6 @@
   <channel site="epg.iptvx.one" site_id="russky-detektiv" lang="ru" xmltv_id="RusskiyDetektiv.ru@SD">Русский детектив</channel>
   <channel site="epg.iptvx.one" site_id="russky-illuzion" lang="ru" xmltv_id="RusskiyIllusion.ru@SD">Русский иллюзион</channel>
   <channel site="epg.iptvx.one" site_id="russky-roman" lang="ru" xmltv_id="Russkiyroman.ru@SD">Русский роман</channel>
-</channel>
   <channel site="epg.iptvx.one" site_id="ryzhy" lang="ru" xmltv_id="Ryzhiy.ru@SD">Рыжий</channel>
   <channel site="zuragt.mn" site_id="sbn" lang="mn" xmltv_id="SBN.mn@SD">SBN</channel>
   <channel site="mi.tv" site_id="br#sonlife-broadcasting-network" lang="pt" xmltv_id="SBNTVInternational.us@SD">SonLife Broadcasting Network</channel>
