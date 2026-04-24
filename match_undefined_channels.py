@@ -130,7 +130,8 @@ def find_best_matches(m3u_channels, epg_channels, min_score):
     epg_norm_names = [ch['norm_name'] for ch in epg_channels]
 
     results = []
-    for m3u_ch in m3u_channels:
+    total = len(m3u_channels)
+    for i, m3u_ch in enumerate(m3u_channels, 1):
         query = m3u_ch['norm_name']
         if not query:
             continue
@@ -142,21 +143,29 @@ def find_best_matches(m3u_channels, epg_channels, min_score):
             score_cutoff=min_score,
         )
 
+        # Progress ticker every 50 channels (overwrites same line)
+        if i % 50 == 0 or i == total:
+            print(f"  [{i}/{total}] checking... {len(results)} matches so far", end='\r')
+
         if not hit:
             continue
 
         _matched_norm, score, idx = hit
         epg_ch = epg_channels[idx]
+        score = round(score, 1)
+        # Print match on its own line (clears the progress line first)
+        print(f"  MATCH ({score:5.1f}) {m3u_ch['raw_name']!r:50s} -> {epg_ch['xmltv_id']}")
         results.append({
             'm3u_name': m3u_ch['raw_name'],
             'epg_name': epg_ch['display_name'],
-            'score':    round(score, 1),
+            'score':    score,
             'xmltv_id': epg_ch['xmltv_id'],
             'site':     epg_ch['site'],
             'site_id':  epg_ch['site_id'],
             'lang':     epg_ch['lang'],
         })
 
+    print()  # newline after the progress line
     return results
 
 
